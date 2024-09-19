@@ -1,0 +1,154 @@
+:root {
+  --white: #ffffff;
+  --black: #383838;
+  --red: #ff0000;
+  --bg1: url('/public/bgImage/bg1.jpg');
+  --bg2: url('/public/bgImage/bg2.eps');
+  --bg3: url('/public/bgImage/bg3.jpg');
+  --bg4: url('/public/bgImage/bg4.jpg');
+  --bg5: url('/public/bgImage/bg5.jpg');
+}
+
+@keyframes bg-change {
+  0% {
+    background-image: var(--bg1);
+  }
+  20% {
+    background-image: var(--bg2);
+  }
+  40% {
+    background-image: var(--bg3);
+  }
+  60% {
+    background-image: var(--bg4);
+  }
+  80% {
+    background-image: var(--bg5);
+  }
+  100% {
+    background-image: var(--bg1);
+  }
+}
+
+.main {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+  color: white;
+  animation: bg-change 5s infinite; /* Animation duration and infinite loop */
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+h1 {
+  margin: 10px;
+  font-size: 40px;
+}
+
+.search-local {
+  width: 100%;
+  max-width: 45rem;
+  display: flex;
+  align-items: center;
+  column-gap: 4rem;
+  padding-left: 3rem;
+  background: var(--white);
+  border-radius: 1rem;
+  min-height: 3rem;
+  height: auto;
+  border: 0.1rem solid var(--white);
+  border-right: none;
+}
+
+.icon {
+  color: var(--red);
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon:hover {
+  animation: funny-icon 0.4s ease-in-out;
+}
+
+@keyframes funny-icon {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 0.8;
+    transform-origin: bottom;
+    transform: rotate(-15deg);
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.search-local input {
+  height: 50%;
+  width: 50%;
+  flex: 1 1 25rem;
+  background: var(--white);
+  display: flex;
+  outline: none;
+  border: none;
+  color: var(--black);
+  font-size: 1.4rem;
+}
+
+input[type="text"]::placeholder {
+  color: var(--black);
+  font-size: 1.3rem;
+}
+
+.search-local button {
+  background: var(--red);
+  border: none;
+  height: 3rem;
+  width: 18rem;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 1rem 1rem 0;
+}
+
+button p {
+  color: var(--white);
+}
+
+.search-local button .search-icon {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .search-local {
+    padding-left: 0;
+    column-gap: 0.25rem;
+  }
+  .search-local button {
+    width: 10rem;
+  }
+  button p {
+    display: none;
+  }
+  .search-local button .search-icon {
+    display: block;
+    color: var(--white);
+    font-size: 3rem;
+  }
+  input[type="text"]::placeholder {
+    font-size: 1.7rem;
+  }
+}
+
+ul li {
+  font-size: 20px;
+}
